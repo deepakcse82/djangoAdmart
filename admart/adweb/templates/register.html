@@ -1,0 +1,89 @@
+{% extends 'web_common.html' %}
+{% block theme_body %}
+{% load static %}
+
+<style>
+    .acc_log{
+        font-size: 18px;
+        margin-left: 30px;
+        text-decoration: underline;
+    }
+</style>
+<!-- breadcrumb start -->
+<section class="breadcrumb-section section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title">
+                    <h2>register</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">register</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb End -->
+
+<!--section start-->
+<section class="register-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="title pt-0">create account </h3>
+                <div class="theme-card">
+<!--                    <form>-->
+<!--                        {% csrf_token %}-->
+<!--                        {{ forms.as_p }}-->
+<!--                    </form>-->
+                    <form class="theme-form">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="email">First Name</label>
+                                {{ forms.first_name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="review">Last Name</label>
+                                {{ forms.last_name }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="username">Username</label>
+                                {{ forms.username }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email">email</label>
+                                {{ forms.email }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="review">Password</label>
+                                {{ forms.password1 }}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="review">Confirm Password</label>
+                                {{ forms.password2 }}
+                            </div>
+                            <div class="col-md-12">
+                                <input type="submit"  class="btn btn-solid" value="create Account">
+                                <a href="{% url 'login' %}" class="acc_log">Have an Account ?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->
+
+
+
+{% endblock %}

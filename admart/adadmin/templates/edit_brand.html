@@ -1,0 +1,39 @@
+{% extends 'admin-theme.html' %}
+{% block theme-base %}
+{% load static %}
+
+
+<div class="prtm-page-bar">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item text-capitalize">
+            <h3> CATEGORY</h3> </li>
+        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="#">Edit Category</a></li>
+    </ul>
+</div>
+
+<div class="prtm-block">
+    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Edit Category Name</label>
+                    {{edit_brand_form.brand_name }}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Edit Category Name</label>
+                    {{edit_brand_form.brand_img }}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group pt-30" >
+                    <input class="btn btn-warning" type="submit" value="Edit Brand">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

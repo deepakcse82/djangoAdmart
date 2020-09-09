@@ -1,0 +1,79 @@
+{% extends 'admin-theme.html' %}
+{% block theme-base %}
+{% load static %}
+
+{% for message in messages %}
+<div class="meassage_body success_message message_fade">
+    <p>{{message}}</p>
+</div>
+
+{% endfor %}
+
+<div class="row prtm-card-wrapper">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 half-col-lg-md">
+        <div class="prtm-card prtm-card-box graph bg-primary pad-all-md mrgn-b-lg">
+            <div class="prtm-card-info">
+                <div class="mrgn-b-lg clearfix">
+                    <div class="pull-left"> <span class="show">Today's Sales</span> <span>85% Of Target</span> </div>
+                    <div class="pull-right text-right"> <span class="font-counter">$<span class="count-item" data-count="12000">0</span></span>
+                    </div>
+                </div>
+                <div class="prtm-card-progress">
+                    <div class="progress progress-xs-height">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" data-width="85%"> <span class="sr-only">50% Complete (secondary)</span> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 half-col-lg-md">
+        <div class="prtm-card prtm-card-box order bg-success pad-all-md mrgn-b-lg">
+            <div class="prtm-card-info">
+                <div class="mrgn-b-lg clearfix">
+                    <div class="pull-left"> <span class="show">New Orders</span> <span>90% Of Target</span> </div>
+                    <div class="pull-right text-right"> <span class="font-counter"><span class="count-item" data-count="350">0</span></span>
+                    </div>
+                </div>
+                <div class="prtm-card-progress">
+                    <div class="progress progress-xs-height">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" data-width="90%"> <span class="sr-only">50% Complete (secondary)</span> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 half-col-lg-md">
+        <div class="prtm-card prtm-card-box invoices bg-info pad-all-md mrgn-b-lg">
+            <div class="prtm-card-info">
+                <div class="mrgn-b-lg clearfix">
+                    <div class="pull-left"> <span class="show">New Customers</span> <span>70% Of Yesterday</span> </div>
+                    <div class="pull-right text-right"> <span class="font-counter"><span class="count-item" data-count="700">0</span></span>
+                    </div>
+                </div>
+                <div class="prtm-card-progress">
+                    <div class="progress progress-xs-height">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" data-width="70%"> <span class="sr-only">8% Complete (secondary)</span> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 half-col-lg-md">
+        <div class="prtm-card prtm-card-box tickets bg-secondary pad-all-md mrgn-b-lg">
+            <div class="prtm-card-info">
+                <div class="mrgn-b-lg clearfix">
+                    <div class="pull-left"> <span class="show">Open Tickets</span> <span>4% From the Yesterday</span> </div>
+                    <div class="pull-right text-right"> <span class="font-counter"><span class="count-item" data-count="35">0</span></span>
+                    </div>
+                </div>
+                <div class="prtm-card-progress">
+                    <div class="progress progress-xs-height">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" data-width="10%"> <span class="sr-only">80% Complete (secondary)</span> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

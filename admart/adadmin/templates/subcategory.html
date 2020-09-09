@@ -1,0 +1,107 @@
+{% extends 'admin-theme.html' %}
+{% block theme-base %}
+{% load static %}
+
+
+<div class="prtm-page-bar">
+    <ul class="breadcrumb">
+        <li class="breadcrumb-item text-capitalize">
+            <h3> CATEGORY</h3> </li>
+        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="#">Sub Category</a></li>
+    </ul>
+</div>
+
+<div class="prtm-block">
+    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Enter Sub Category Name</label>
+                    {{sub_cat_form.sub_cat_names }}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Choose Image</label>
+                    {{sub_cat_form.sub_cat_img }}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group pt-30" >
+                    <input class="btn btn-success"type="submit" value="Add Sub Category">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="">
+    <div class="prtm-block">
+        <div class="prtm-block-title mrgn-b-lg">
+            <div class="caption">
+                <h3 class="text-capitalize">List</h3>
+            </div>
+            <div class="prtm-block-content">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-bordered dataTable" data-table="table-button" >
+                        <thead>
+                            <tr class="bg-primary">
+                                <th>S.No</th>
+<!--                                <th> Brand</th>-->
+<!--                                <th> Category</th>-->
+                                <th>Sub Category</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for sub_cat in all_sub_category %}
+
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+<!--                                <td>{{sub_cat.brand_name}}</td>-->
+<!--                                <td>{{sub_cat.sub_cat_type}}</td>-->
+                                <td>{{sub_cat.sub_cat_names}}</td>
+                                <td>
+                                    <img src="/media/{{sub_cat.sub_cat_img}}" style="width:100px;height:100px;">
+                                </td>
+                                <td>
+                                    <a href="{% url 'edit_sub_cat' sub_cat.id %}" class="btn btn-warning">Edit</a>
+                                    <a href="#del_sub_cat_modal{{sub_cat.id}}" class="btn btn-danger" data-toggle="modal">Delete</a>
+                                </td>
+                            </tr>
+                            <!--  ============= del modal start ==========  -->
+                             <div class="modal fade" id="del_sub_cat_modal{{sub_cat.id}}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">Delete Category</h4>
+                                        </div>
+                                        <div class="modal-body"> <p>Are You Sure ? You Want to delete Category
+                                            <strong>" {{sub_cat.sub_cat_names}} "</strong></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-inverse" data-dismiss="modal">Close</button>
+                                            <a href="{% url 'del_sub_cat' sub_cat.id %}" class="btn btn-danger">Confirm</a>
+                                        </div>
+
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
